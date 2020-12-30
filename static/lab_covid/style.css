@@ -1,0 +1,30 @@
+body{
+	background-repeat: no-repeat;
+	background: url(lab.jpeg) no-repeat;
+	background-size: 1500px 700px;
+}
+
+.login-box{
+	position: absolute;
+	top: 20%;
+	left: 40%;
+	border: 15px ;
+	box-sizing: border-box;
+}
+
+.textbox{
+	background-color: brown;
+	width:100%
+	padding: 12px 20px;
+	margin: 10px 0;
+	display: outline-block;
+	border: 5px solid;
+	border-color: brown;
+	box-sizing: border-box;
+}
+.btn{
+	background-color: brown;
+	width: 25%;
+	padding: 5px;
+	margin: 10px 0px;
+}
