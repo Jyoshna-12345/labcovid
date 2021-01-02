@@ -1,0 +1,81 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>slot booking form</title>
+	<link rel="stylesheet" type="text/css" href="{% static 'css/style1.css' %}">
+	<link rel="stylesheet" type="text/css" href="{% static 'css/p2.jpeg' %}">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	<link rel="stylesheet" href="htttps://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+</head>
+<body>
+	<form action="{% url 'index' %}" method="POST" class="post-form">
+    {%  csrf_token %}
+	<header>
+		<div class="container">
+			<form class="form-group">
+				<div id="form">
+					<h1 style="color: white">Booking Now</h1>
+
+
+					<div id="first-group">
+
+						<div id="content">
+							<i class="fa fa-user" aria-hidden="true"></i>
+							<input type="text" name="f_name" id="input-group" placeholder="First name">							
+						</div>
+
+						<div id="content">
+							<i class="fa fa-user" aria-hidden="true"></i>
+							<input type="text" name="l_name" id="input-group" placeholder="Last name">							
+						</div>
+
+
+						<div id="content">
+							<i class="fa fa-phone" aria-hidden="true"></i>
+							<input type="number" id="input-group" placeholder="phone number">							
+						</div>
+
+
+						<div id="content">
+							<i class="fa fa-id-card" aria-hidden="true"></i>
+							<input type="number" id="input-group" placeholder="roll number">							
+						</div>
+
+						<div id="content">
+							<i class="fa fa-calendar" aria-hidden="true"></i>
+							<span class="label Reservation date">Reservation Date</span>
+  							<input type="date" required id="res_date"  name="date" value="<?=date("Y-m-d")?>">
+						</div>
+						<div id="content">
+							<i class="fa fa-envelope" aria-hidden="true"></i>
+							<input type="text" id="input-group" placeholder="email-id">							
+						</div>
+						<div id="content">
+							<i class="fa fa-desktop" aria-hidden="true"></i>
+							<select id="input-group" style="background-color: black;">
+								<option value="">choose lab</option>
+								<option value="">LAB-1</option>
+								<option value="">LAB-2</option>
+								<option value="">LAB-3</option>
+								<option value="">LAB-4</option>
+							</select>							
+						</div>
+						<div id="content">
+							<i class="fa fa-clock-o" aria-hidden="true"></i>
+							<select id="input-group" style="background-color: black;">
+								<option value="">choose session</option>
+								<option value="">FORENOON(AM)</option>
+								<option value="">AFTERNOON(PM)</option>
+							</select>							
+						</div>
+					</div>
+					<button type="submit" value="Submit" id="submt-btn">Book now</button>
+				</div>
+			</form>
+		</div>
+	</header>
+</body>
+</html>
