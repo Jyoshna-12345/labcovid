@@ -1,7 +1,28 @@
 from django import forms
-from .models import Login
+from django.contrib.auth.forms import UserCreationForm
+from django.contrib.auth.models import User
+from .models import Index
 
-class Loginform(forms.ModelForm):
-	class Meta():
-		model=Login
-		fields=('username','password',)
+class RegisterForm(UserCreationForm):
+    email = forms.EmailField(required=True, label='Email', error_messages={'exists': 'This already exists!'})
+
+    class Meta:
+        model = User
+        fields = ('username', 'email', 'password1', 'password2')
+
+    def save(self, commit=True):
+        user = super(RegisterForm, self).save(commit=False)
+        user.email = self.cleaned_data['email']
+        if commit:
+            user.save()
+        return user
+
+    def clean_email(self):
+        if User.objects.filter(email=self.cleaned_data['email']).exists():
+            raise forms.ValidationError(self.fields['email'].error_messages['exists'])
+        return self.cleaned_data['email']
+
+class IndexForm(UserCreationForm):
+    class Meta:
+        model=Index
+        fields=('f_name','l_name','phonenumber','rollnumber','emailid','reservationdate','lab','session',)
