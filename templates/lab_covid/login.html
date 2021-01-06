@@ -1,34 +1,26 @@
- {% load static %}
-<!DOCTYPE html>
-<html>
-<head>
-  <meta charset="utf-8">
-  <title>LogIn Page</title>
-  <link rel="stylesheet" href="{% static 'lab_covid/gvplogo.jpeg' %}">
-  <link rel="stylesheet" href="{% static 'lab_covid/style.css' %}">
-</head>
-<body background-size: 100px align="center">
-  <form action ="{% url 'login' %}" method="POST" class="post-form">
-    {% csrf_token %}
-    <img  src="{% static 'lab_covid/gvplogo.jpeg' %}" alt="Image description" width="85" height="78" style="float:left">
-    <h1 style="color: brown; text-align: center; font-family:timesnewroman; font-size: 30px; font-variant: bold"  >GAYATRI VIDYA PARISHAD COLLEGE OF ENGINEERING FOR WOMEN</h1>
-    <br>
-    <hr>
-    <h2 style="color: black text-align:center;">LAB MANAGEMENT DURING COVID</h2>
-  <div class="login-box" align="center">
-    <br>
-    <h2 style="color: brown; font-size: 30px;">LOGIN </h2>
-    <div class='textbox'>
-    
-      <input type="text" placeholder="rollno.name@gvpcew.ac.in" name="username" value="">
-      
-    </div>
-    <div class='textbox'>
-      <input type="password" placeholder="password" name="password" value="" >
-    </div>
-    <br>
-    <input class='btn' type="submit" name="" value="Log in" >
-  </div>
-</form>
-</body>
-</html> 
+{% extends 'minip/base.html' %}
+{% block content %}
+<div class="container" align="center">
+    <h2>Login</h2>
+    <form action ="{% url 'signin' %}" method="POST" class="post-form">
+        <div class="login-box">
+        {% csrf_token %}
+        <h2>Login Here</h2>
+        <div class='textbox'>
+        
+            <input type="text" placeholder="rollno.name@gvpcew.ac.in" name="username" value="">
+            
+        </div>
+
+        <div class='textbox'>
+            <input type="password" placeholder="password" name="password" value="" >
+            
+        </div>
+
+        <input class='btn' type="submit" name="" value="Sign in">
+
+        </div>
+    </form>
+
+
+{% endblock %}
